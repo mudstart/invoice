@@ -1,23 +1,18 @@
-# Invoice
-- Frontend invoiced app
+# Webpack React 0
 
-# This create the front end in reactJS
+This is a simple boiler plate project that sets up a base project for anyone who wants to use it. It has the basic webpack config and react setup.
 
-- Conected a rails api 
+The idea is it can grow from here.
 
-- Use database postgresql 
+## Development Only
 
-- Setup Redis for cahed
+Currently This config is development only, if you want to configure it for production feel free to add your own.
 
+## Usage
 
-# Methods case use
+Simply fork and clone this repository and run.
 
-- Token 
-- Autentications
-- http: /v1/method
-
-# test case
-
-# Response Json
-
-# Stuff
+``` shell
+npm install
+npm run dev
+```
