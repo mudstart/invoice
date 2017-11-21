@@ -12,7 +12,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style!css'),
+        loader: 'style!css',
       },
       {
         test: /\.(scss|sass)$/,
@@ -20,7 +20,7 @@ module.exports = {
           'style',
           'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!sass',
         ]
-      }
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -33,8 +33,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('[name].css', {
-      allChunks: true,
-    }),
+    
   ],
 };
