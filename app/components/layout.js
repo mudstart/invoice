@@ -26,7 +26,7 @@ class Layout extends React.Component {
   }
 
   newContact = () =>
-    <div classNane='pure-g'>
+    <div className='pure-g'>
       <div className='pure-u-12-24'>
         <form className='pure-form'>
           <fieldset>
