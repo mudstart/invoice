@@ -1,31 +1,25 @@
 import { observable, action } from 'mobx';
 
+import Api from 'helpers/api';
+
 class Contacts {
+  path = '/contacts'
   @observable all = [];
   @observable isLoading = false;
 
   @action async fetchAll() {
     this.isLoading = false;
-    const response = await fetch('http://localhost:3000/v1/contacts');
+    const response = await Api.get(this.path);
     const status = await response.status;
 
     if (status === 200) {
-      this.all = await response.json();
+      const json = await response.json();
+      this.all = await json.data;
     }
   }
 
   @action async add(data) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    const options = {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(data),
-    };
-
-    const request = new Request('http://localhost:3000/v1/contacts', options);
-    const response = await fetch(request);
+    const response = await Api.post(this.path, data);
     const status = await response.status;
 
     if (status === 201) {
@@ -41,11 +35,15 @@ class Contacts {
     );
   }
 
-  @action remove(contactId) {
-    const existing = this.all
-    this.all = existing.filter(
-      c => c.id !== contactId
-    );
+  @action async remove(contactId) {
+    this.isLoading = true;
+    const response = await Api.delete(`${this.path}/${contactId}`);
+    const status = await response.status;
+
+    if (status === 200) {
+      this.isLoading = false;
+      this.fetchAll;
+    }
   }
 }
 

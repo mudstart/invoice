@@ -8,6 +8,15 @@ module.exports = {
     filename: '[name].js',
     chunkFileName: '[id].js',
   },
+  resolve: {
+    modulesDirectories: ['node_modules', 'lib', 'app', 'vendor']
+  },
+  devServer: {
+    hot: true,
+    inline: true,
+    colors: true,
+    historyApiFallback: true,
+  },
   module: {
     loaders: [
       {

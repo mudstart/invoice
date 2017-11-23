@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dashboard -- webpack-dev-server --watch --progress --color --config ./webpack.config.js"
+    "dev": "webpack-dashboard -- webpack-dev-server --hot --inline  ./webpack.config.js"
   },
   "author": "",
   "license": "MIT",
