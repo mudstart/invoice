@@ -9,7 +9,7 @@ class Auth extends React.PureComponent {
         <div className={styles.title}>
           <h1>{this.props.title}</h1>
         </div>
-        <div className={styles.formWrapper}>
+        <div className={`${styles.formWrapper} animated fadeIn`}>
           {this.props.children}
         </div>
         <div className={styles.extras}>
