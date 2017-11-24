@@ -1,4 +1,6 @@
 import 'purecss/build/pure.css';
+import 'styles/init.sass';
+
 import React from 'react';
 import { render } from 'react-dom';
 
