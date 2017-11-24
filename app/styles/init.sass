@@ -1,5 +1,13 @@
+@import 'styles/colors'
+
 :global
   body
     font-family: 'Roboto' sans-serif
   .pure-from
-    border-radius: 0.2em !important 
+    border-radius: 0.2em !important
+  .pure-button
+    box-shadow: 0.1em 0.1em $base-light-green
+    &:hover, &:visited, &:focus
+    box-shadow: 0.1em 0.1em $base-light-green
+    &:active
+      box-shadow: 0.1em 0.1em
