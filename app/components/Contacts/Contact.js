@@ -9,6 +9,7 @@ class Contact extends React.Component {
   removeContact = (e) => {
     e.preventDefault()
     this.props.contacts.remove(this.props.id);
+    console.log(this.props.contacts);
   }
 
   render() {
@@ -21,7 +22,7 @@ class Contact extends React.Component {
         </h2>
         <p>{this.props.email}</p>
         <a href='#'
-          className={'${styles.removeButton} pure-button'}
+          className={`${styles.removeButton} pure-button`}
           onClick={this.removeContact}>
           Remove
         </a>
