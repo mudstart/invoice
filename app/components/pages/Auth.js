@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './Auth.sass';
 
 class Auth extends React.PureComponent {
-  render () {
-    return(
+  render() {
+    return (
       <div className={styles.authPageWrapper}>
         <div className={styles.title}>
           <h1>{this.props.title}</h1>
@@ -13,7 +13,7 @@ class Auth extends React.PureComponent {
           {this.props.children}
         </div>
         <div className={styles.extras}>
-        {this.props.extras || null}
+          {this.props.extras || null}
         </div>
       </div>
     );

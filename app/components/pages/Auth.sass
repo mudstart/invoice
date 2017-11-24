@@ -1,45 +1,42 @@
 @import 'styles/colors'
 
-=fix_width_and_center($width)
-    width: 25em
-    margin-left: auto
-    margin-right: auto
+=fixed_width_and_center($width)
+  width: $width
+  margin-left: auto
+  margin-right: auto
 
 .authPageWrapper
-  background: $base-light-green
+  background: linear-gradient(to bottom, #000046, #1cb5e0)
   position: absolute
   top: 0
-  bottom: 0
   left: 0
   right: 0
-
+  bottom: 0
   form
     input
       margin-bottom: 1em !important
 
 .extras
-  +fix_width_and_center(25em)
+  +fixed_width_and_center(25em)
   text-align: center
   margin-top: 3em
   a
-   color: $base-blank-white
-
+    color: white
 
 .title
-  +fix_width_and_center(25em)
+  +fixed_width_and_center(25em)
   text-align: center
   color: white
-  margin-top: 8em
+  margin-top: 10em
   h1
     font-weight: 100
-    text-shadow: 2px 2px 0em $base-dark-blue
-
+    text-shadow: 2px 2px 0em #000046
 
 
 .formWrapper
-  +fix_width_and_center(25em)
-  margin-top: 15em
+  +fixed_width_and_center(25em)
   padding: 2em
+  margin-top: 5em
   border-radius: 0.2em
-  box-shadow: 0em 0em 0.4em $base-dark-blue
+  box-shadow: 0em 0em 0.4em #000046
   background: white
