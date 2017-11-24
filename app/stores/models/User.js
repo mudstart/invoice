@@ -27,6 +27,8 @@ class User {
       this.signInFromStorage(store.email, store.authentication_token)
     } else if (email && password) {
       this.createSession(email, password);
+    } else {
+      this.signOut();
     }
   }
 
