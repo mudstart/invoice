@@ -11,7 +11,7 @@ class Member extends React.Component {
   signOut = (e) => {
     e.preventDefault();
     const { user } = this.props;
-    
+
     user.destroySession();
   }
 
@@ -23,7 +23,7 @@ class Member extends React.Component {
                 className={classNames('pure-menu-link', styles.links)}>{this.props.user.email}</Link>
         </li>
         <li className='pure-menu-item'>
-          <a href='#' className='pure-menu-link' onClick={this.signOut}>Sign Out</a>
+          <a href='#' className={classNames('pure-menu-link', styles.links)} onClick={this.signOut}>Sign Out</a>
         </li>
       </ul>
     );
