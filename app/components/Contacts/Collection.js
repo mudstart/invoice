@@ -1,5 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+
+import Spinner from 'components/Spinner';
+
 import Contact from './Contact';
 
 import styles from './Collection.sass';
@@ -30,23 +33,27 @@ class Layout extends React.Component {
         <form className='pure-form' onSubmit={this.addContact}>
           <fieldset>
             <legend>New Contact</legend>
-            <input ref='email' type="email" placeholder="exmple@exmple.com" />
-            <input ref='first_name' type="text" placeholder="First Name" />
-            <input ref='last_name' type="text" placeholder="Last Name" />
 
-            <button type="submit" className='pure-button pure-button-primary'>Add</button>
+            <input ref='email' type='email' placeholder='example@example.com' />
+            <input ref='first_name' type='text' placeholder='First Name' />
+            <input ref='last_name' type='text' placeholder='Last Name' />
+
+            <button type="submit" className="pure-button pure-button-primary">Add</button>
           </fieldset>
         </form>
       </div>
     </div>;
 
-
   render() {
+    const { all, isLoading } = this.props.contacts;
+
+    if (isLoading) { return <Spinner />; }
+
     return (
       <div id='Collection' className={styles.main}>
         {this.newContact()}
         <div className='pure-g'>
-          {this.props.contacts.all.slice().map(info =>
+          {all.slice().map(info =>
             <Contact key={info.id} {...info} />
           )}
         </div>
