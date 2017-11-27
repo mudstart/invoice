@@ -4,6 +4,8 @@ import Api from 'helpers/api';
 
 class User {
   sessions = '/sessions';
+  users = '/users';
+  
   @observable isLoading = false;
   @observable signedIn = false;
   @observable email = null;
@@ -18,6 +20,33 @@ class User {
       this.email = email;
     }
   }
+
+  async create(email, password, password_confirmation) {
+    this.setIsLoading(true);
+
+    const response = await Api.post(
+      this.users,
+      { user: { email, password, password_confirmation } }
+    );
+
+    const status = await response.status;
+
+    if (status === 200) {
+      const body = await response.json();
+      const { user } = body.data;
+
+      localStorage.setItem('token', user.authentication_token);
+      localStorage.setItem('email', user.email);
+
+      this.setIsLoading(false);
+      this.setSignedIn(true, user.email);
+
+      browserHistory.push('/')
+    }else{
+      console.log('Error');
+    }
+  }
+
   signIn(email = null, password = null) {
     const store = {
       authentication_token: localStorage.getItem('token'),
@@ -70,6 +99,7 @@ class User {
       console.log('Error');
     }
   }
+
   async destroySession() {
     this.setIsLoading(true);
 
