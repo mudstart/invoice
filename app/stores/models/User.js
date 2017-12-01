@@ -1,11 +1,12 @@
 import { observable, action } from 'mobx';
 import { browserHistory } from 'react-router';
+
 import Api from 'helpers/api';
 
 class User {
   sessions = '/sessions';
   users = '/users';
-  
+
   @observable isLoading = false;
   @observable signedIn = false;
   @observable email = null;
@@ -41,22 +42,23 @@ class User {
       this.setIsLoading(false);
       this.setSignedIn(true, user.email);
 
-      browserHistory.push('/')
-    }else{
-      console.log('Error');
+      browserHistory.push('/');
+    } else {
+      console.log('error');
     }
   }
 
   signIn(email = null, password = null) {
     const store = {
       authentication_token: localStorage.getItem('token'),
-      email: localStorage.getItem('email')
+      email: localStorage.getItem('email'),
     }
+
     if (store.email && store.authentication_token) {
-      this.signInFromStorage(store.email, store.authentication_token)
+      this.signInFromStorage(store.email);
     } else if (email && password) {
       this.createSession(email, password);
-    } else {
+    } else { 
       this.signOut();
     }
   }
@@ -84,7 +86,7 @@ class User {
 
     const status = await response.status;
 
-    if (status === 201) {
+    if (status == 201) {
       const body = await response.json();
       const { user } = body.data;
 
@@ -94,9 +96,9 @@ class User {
       this.setIsLoading(false);
       this.setSignedIn(true, user.email);
 
-      browserHistory.push('/')
-    }else{
-      console.log('Error');
+      browserHistory.push('/');
+    } else {
+      console.log('error');
     }
   }
 

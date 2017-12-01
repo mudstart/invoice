@@ -3,7 +3,7 @@ import { observable, action } from 'mobx';
 import Api from 'helpers/api';
 
 class Contacts {
-  path = '/contacts'
+  path = '/contacts';
   @observable all = [];
   @observable isLoading = false;
 
@@ -43,7 +43,7 @@ class Contacts {
 
     if (status === 200) {
       this.isLoading = false;
-      this.fetchAll;
+      this.fetchAll();
     }
   }
 }

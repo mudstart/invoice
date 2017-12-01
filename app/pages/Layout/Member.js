@@ -10,6 +10,7 @@ import styles from './index.sass';
 class Member extends React.Component {
   signOut = (e) => {
     e.preventDefault();
+
     const { user } = this.props;
 
     user.destroySession();

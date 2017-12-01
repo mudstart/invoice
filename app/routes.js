@@ -7,7 +7,7 @@ import { Route,
 import c from './pages';
 
 const routes =
-  (<Route>
+  <Route>
     <Redirect from='/' to='/dashboard' />
     <Route path='users'>
       <Route path='sign_in' component={c.Sessions.New} />
@@ -15,11 +15,17 @@ const routes =
     </Route>
     <Route component={c.Layout.Application}>
       <Route path='dashboard' component={c.Dashboard} />
-      <Route path='contacts'>
-        <IndexRoute component={c.Contacts.Collection} />
-        <Route path=':contactId' component={c.Contacts.Show} />
+      <Route path='accounts/:accountId'>
+        <Route path='organizations'>
+          <IndexRoute component={c.Organizations.Collection} />
+          <Route path='new' component={c.Organizations.New} />
+        </Route>
+        <Route path='contacts'>
+          <IndexRoute component={c.Contacts.Collection} />
+          <Route path=':contactId' component={c.Contacts.Show} />
+        </Route>
       </Route>
     </Route>
-  </Route>);
+  </Route>;
 
 export default routes;

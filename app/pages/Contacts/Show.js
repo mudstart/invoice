@@ -1,4 +1,3 @@
-// Before (15.4 and below)
 import React from 'react';
 import { observer } from 'mobx-react';
 
